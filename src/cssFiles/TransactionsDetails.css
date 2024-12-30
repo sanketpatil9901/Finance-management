@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .h1 {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px;
+    font-size: 2.5rem;
+  }
+  
+  .header5 {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("https://img.freepik.com/free-photo/fitness-concept-with-dumbbells-frame_23-2148531434.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+  }
+  
+  .header2 {
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    padding-top: 10px;
+    padding-right: 20px;
+    width: 100%;
+    font-size: larger;
+    font-weight: bold;
+  }
+  
+  .form-group button {
+    margin-bottom: 5px;
+    padding: 6px;
+    width: 100%;
+    font-size: medium;
+  }
+  
+  .form-group input {
+    width: 100%;
+    height: 2em;
+    font-size: 16px;
+    margin-bottom: 1px;
+    border-radius: 4px;
+    background: transparent;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: gray;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 1024px) {
+    .h1 {
+      font-size: 2rem;
+      padding: 20px;
+    }
+  
+    .header5 {
+      padding: 15px;
+    }
+  
+    .form-group label,
+    .form-group input,
+    .form-group button {
+      font-size: medium;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .h1 {
+      font-size: 1.8rem;
+      padding: 15px;
+    }
+  
+    .form-group label,
+    .form-group input,
+    .form-group button {
+      font-size: smaller;
+    }
+  
+    .form-group input {
+      height: 2em;
+    }
+  
+    .form-group button {
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .h1 {
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  
+    .header5 {
+      padding: 10px;
+    }
+  
+    .form-group {
+      flex-direction: column;
+    }
+  
+    .form-group label,
+    .form-group input,
+    .form-group button {
+      font-size: small;
+    }
+  
+    .btn {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  

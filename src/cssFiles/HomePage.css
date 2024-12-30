@@ -1,0 +1,267 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #f7e9a5;
+  color: black;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #333;
+}
+
+.contact-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #f7e9a5;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  color: #6a6a6a;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Features Section */
+.features-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #4a90e2;
+  padding: 20px;
+  color: white;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.feature {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.feature img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.service {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 22%;
+}
+
+.service img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+/* Loan Application Section */
+.loan-application-container {
+  margin-top: 30px;
+  background-color: #1976d2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  padding: 20px;
+}
+
+.loan-application-container h1,
+.loan-application-container h2 {
+  padding: 10px;
+  text-align: center;
+}
+
+.loan-form {
+  width: 80%;
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows form elements to stack on smaller screens */
+}
+
+.loan-form select,
+.loan-form input,
+.loan-form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 48%; /* Make form elements take up less width */
+}
+
+.loan-form button {
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.loan-form button:hover {
+  background-color: #1976d2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service {
+    width: 80%;
+  }
+
+  .loan-form select,
+  .loan-form input,
+  .loan-form button {
+    width: 100%; /* Make the form elements take up full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-button {
+    margin-top: 10px;
+  }
+
+  .hero-section {
+    padding: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .features-section {
+    flex-direction: column;
+  }
+
+  .feature {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .services {
+    flex-direction: column;
+  }
+
+  .service {
+    width: 90%; /* Make services take full width on smaller screens */
+  }
+
+  .loan-application-container {
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .loan-form select,
+  .loan-form input,
+  .loan-form button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
