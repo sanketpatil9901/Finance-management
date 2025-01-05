@@ -24,7 +24,7 @@ function Signin() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const click = (event) => {
+  const handlesubmit = (event) => {
     event.preventDefault();
     // axios
     //   .post("http://localhost:5000/api/signup", { username, password })
@@ -49,7 +49,7 @@ function Signin() {
       <GlobalStyle />
       <Main>
         <Title>Sign Up</Title>
-        <form >
+        <form onSubmit={handlesubmit}>
           <Label htmlFor="username">Username:</Label>
           <Input
             type="text"
@@ -73,8 +73,7 @@ function Signin() {
               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </PasswordToggleIcon>
           </div>
-          {/* <SubmitButton type="submit">Sign Up</SubmitButton> */}
-          <button onClick={click} >Submit</button>
+          <SubmitButton type="submit">Sign Up</SubmitButton>
         </form>
       </Main>
     </FormGroup>
