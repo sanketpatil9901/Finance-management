@@ -1,0 +1,52 @@
+/* ChooseCustomerName.css */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Center vertically */
+  height: 80vh; /* Full viewport height */
+}
+
+.select-button-container {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+select {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  margin-right: 10px; /* Space between select and button */
+}
+
+select:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h1 {
+  color: #007BFF;
+  font-size: 24px;
+  text-align: center;
+}

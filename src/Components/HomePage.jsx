@@ -54,7 +54,7 @@ const HomePage = () => {
           <Link to="/" >Home</Link>
           <Link to="/admin">Admin</Link>
           <Link to="/loancalculator">Loan Calculator</Link>
-          <a href="#staff-login">Staff Login</a>
+          <Link to="/staff-login">Staff Login</Link>
         </nav>
         <button className="contact-button">+91 63600 44500</button>
       </header>
@@ -65,7 +65,6 @@ const HomePage = () => {
           <p>Achieve your financial goals</p>
         </div>
         <div className="hero-image">
-          {/* <img src={loanImage} alt="Loan Illustration" /> */}
         </div>
       </section>
 

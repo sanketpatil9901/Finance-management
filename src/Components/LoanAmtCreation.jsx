@@ -10,6 +10,7 @@ import {
   Label,
   Button,
 } from "../cssFiles/LoanAmtCreationcss"; // Import styled components
+import axios from "axios";
 
 function LoanAmtCreation() {
   const [loanAmtcreate, setLoanAmtcreate] = useState({
@@ -55,6 +56,47 @@ function LoanAmtCreation() {
       [name]: value,
     }));
   };
+
+  const validateEmail = (email) => {
+     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+     return re.test(String(email).toLowerCase()); 
+    };
+
+    const isInputEmpty = (value) => {
+       return value.trim() === "";
+       };
+
+  const registerUser = (useremail) => {
+    // 1. Input validation
+    for (let key in loanAmtcreate) { 
+     if (isInputEmpty(loanAmtcreate[key])) {
+       alert(`The field ${key} is required`); 
+       return false;
+       } }
+
+    if(!validateEmail(useremail))
+    {
+     alert ("Please add a valid email address")
+     return false;
+    }
+    return true;
+  }
+
+    const savedata=()=>{
+      if(registerUser(loanAmtcreate.useremail))
+      {
+    try {
+    // console.log(registerUser())
+    axios.post('http://localhost:5000/api/loancreate',{loanAmtcreate})
+    .then(alert("Data saved succesfully"))
+    } catch(err) {
+       alert("Error in data saving")
+    }
+  }
+  else 
+  alert("All fields are required")
+  }
+
 
   return (
     <Main>
@@ -355,10 +397,11 @@ function LoanAmtCreation() {
           </Div1>
         </FormGroup1>
 
-        <Button>Save</Button>
+        <Button onClick={savedata}>Save</Button>
       </FormGroup>
     </Main>
   );
 }
+
 
 export default LoanAmtCreation;

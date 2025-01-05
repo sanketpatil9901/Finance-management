@@ -6,7 +6,7 @@ function AdminMenu() {
     <Navbar>
       <NavbarList>
         <NavbarItem><NavbarLink to="/home">Home</NavbarLink></NavbarItem>
-        <NavbarItem><NavbarLink to="#add-staff">Add Staff</NavbarLink></NavbarItem>
+        <NavbarItem><NavbarLink to="/staffdetails">Add Staff</NavbarLink></NavbarItem>
         <NavbarItem><NavbarLink to="/loanamount">Account Create</NavbarLink></NavbarItem>
         <NavbarItem><NavbarLink to="/customerlist">View Customer</NavbarLink></NavbarItem>
         <NavbarItem><NavbarLink to="/transit">Transactions</NavbarLink></NavbarItem>
@@ -15,5 +15,4 @@ function AdminMenu() {
     </Navbar>
   );
 }
-
 export default AdminMenu;

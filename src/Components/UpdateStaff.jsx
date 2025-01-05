@@ -53,8 +53,7 @@ const UpdateStaff = () => {
       <Container>
         <Title>Update Staff</Title>
         <form>
-          {Object.keys(staff).map((key) => (
-           
+          {Object.keys(staff).map((key) => (      
               <FormGroup key={key}>
                 <Label>{key.charAt(0).toUpperCase() + key.slice(1)}</Label>
                 <Input

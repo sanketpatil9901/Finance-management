@@ -1,32 +1,112 @@
-.body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
+/* General Styles */
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 20px;
+  color: #333;
+}
+
+/* Table Styles */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 90%;
+  overflow-x: auto; /* Allows horizontal scrolling for smaller screens */
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #00BCD4;
+  color: white;
+}
+
+td {
+  background-color: #f0f8ff;
+}
+
+/* Add Button Styles */
+.add-btn {
+  margin: 10px 0;
+}
+
+.add-btn a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Button Styles */
+.update-btn, .delete-btn {
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+ .delete-btn:hover {
+  background-color: #00796B;
+}
+
+.delete-btn {
+  background-color: #F44336;
+}
+
+.delete-btn:hover {
+  background-color: #D32F2F;
+}
+
+/* Pagination and Responsiveness */
+p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 90%;
-    
+    width: 100%;
+    display: block; /* Makes the table scrollable horizontally on smaller screens */
+    overflow-x: auto;
   }
-  
+
   th, td {
-    padding: 10px;
-    text-align: center;
-    
-  
+    padding: 8px;
+    font-size: 12px;
   }
-  
-  th {
-    background-color: #00BCD4;
-    color: white;
+
+  .add-btn a {
+    padding: 8px 16px;
+    font-size: 14px;
   }
-  
-  td {
-    background-color: #f0f8ff;
+
+  .update-btn, .delete-btn {
+    padding: 4px 8px;
+    font-size: 12px;
   }
-  
+
   h1 {
-    margin-top: 20px;
-    color: #333;
+    font-size: 18px;
   }
+
+  /* Adjust the layout for very small screens */
+  .App {
+    padding: 10px;
+  }
+
+  /* Hide the table's first column (ID) on very small screens */
+  td:first-child, th:first-child {
+    display: none;
+  }
+}

@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, {  useEffect, useState } from "react";
 import "../cssFiles/TransactionsDetails.css";
 import axios from "axios";
 
-function TransactionDeatails() {
+const TransactionDeatails=({userfirstname}) =>{
   const [transitData, setTransitData] = useState({
-    firstName: "",
-    lastName: "",
-    contact: "",
-    loanAmt: "",
-    period: "",
-    paymentDate: "",
+    userfirstname: "",
+    userlastname: "",
+    usercontact: "",
+    loanamt: "",
+    loanperiod: "",
+  });
+
+  const [transitData1,setTransitData1] = useState({
+    paymentdate: "",
     amount: "",
     balance:""
-  });
+  })
+
+ useEffect(()=>{
+  const fetchdata=async ()=>{
+   try {
+   const result = await axios.get(`http://localhost:5000/api/getloandetails/${userfirstname}`)
+   console.log(result.data[0])
+   setTransitData(result.data[0])
+   } catch (error) {
+    console.log(error)
+   }
+  }
+  fetchdata()
+ },[userfirstname])
 
   const handlechange=(e)=>{
     const { name, value } = e.target;
@@ -20,13 +36,20 @@ function TransactionDeatails() {
       ...transitData,
       [name]:value
     });
-    console.log(transitData.contact)
+  };
+
+  const handlechange1=(e)=>{
+    const { name, value } = e.target;
+    setTransitData1({
+      ...transitData1,
+      [name]:value
+    });
   };
 
   const save= (e)=>{
     try {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/transationsdetails',{transitData})
+    axios.post('http://localhost:5000/api/transationsdetails',{transitData:transitData,transitData1:transitData1})
    .then(alert('Data saved successfully'))
     }catch(err) {
       console.log("error")
@@ -39,43 +62,43 @@ function TransactionDeatails() {
           <h1 className="h1">Enter Transaction Details</h1>
           <div className="form-group">
             <label htmlFor="firstname">First Name</label>
-            <input type="text" id="firstname"  name="firstName" required value={transitData.firstName} onChange={handlechange} 
+            <input type="text" id="firstname"  name="userfirstname" required value={transitData.userfirstname} onChange={handlechange} 
               />
           </div>
           <div className="form-group">
             <label htmlFor="lastname">Last Name</label>
-            <input type="text" id="lastname" name="lastName" onChange={handlechange}  required value={transitData.lastName}/>
+            <input type="text" id="lastname" name="userlastname" onChange={handlechange}  required value={transitData.userlastname}/>
           </div>
           <div className="form-group">
             <label htmlFor="contact">Contact</label>
-            <input type="contact" id="contact" name="contact" onChange={handlechange}  required value={transitData.contact}/>
+            <input type="contact" id="contact" name="usercontact" onChange={handlechange}  required value={transitData.usercontact}/>
           </div>
           <div className="form-group">
             <label htmlFor="loan_amt">Loan Amount</label>
-            <input type="loan_amt" id="loan_amt" name="loanAmt" onChange={handlechange}  required value={transitData.loanAmt}/>
+            <input type="loan_amt" id="loan_amt" name="loanamt" onChange={handlechange}  required value={transitData.loanamt}/>
           </div>
           <div className="form-group">
             <label htmlFor="peroid">Peroid</label>
-            <input type="loan_amt" id="peroid" name="period" onChange={handlechange}  required value={transitData.period}/>
+            <input type="loan_amt" id="peroid" name="loanperiod" onChange={handlechange}  required value={transitData.loanperiod}/>
           </div>
           <div className="form-group">
             <label htmlFor="payement_date">Payement Date</label>
             <input
-              type="paymentDate"
-              id="paymentDate"
-              name="paymentDate"
+              type="text"
+              id="paymentdate"
+              name="paymentdate"
               required
-              value={transitData.paymentDate} 
-              onChange={handlechange}
+              value={transitData1.paymentdate} 
+              onChange={handlechange1}
             />
           </div>
           <div className="form-group">
             <label htmlFor="amount">Amount</label>
-            <input type="amount" id="amount" name="amount" value={transitData.amount} onChange={handlechange}  required />
+            <input type="amount" id="amount" name="amount" value={transitData1.amount} onChange={handlechange1}  required />
           </div>
           <div className="form-group">
             <label htmlFor="balance">Balance</label>
-            <input type="balance" id="balance" name="balance" value={transitData.balance} onChange={handlechange}  required />
+            <input type="balance" id="balance" name="balance" value={transitData1.balance} onChange={handlechange1}  required />
           </div>
           <div className="form-group">
             <button className="btn" id="save" onClick={save}>

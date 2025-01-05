@@ -1,121 +1,145 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../cssFiles/CustomerList.css";
+import axios from "axios";
+
+export const ShowLoading = () => {
+  return (
+    <>
+      <h1 style={{ textAlign: "center", color: "blue", fontSize: "2em" }}>
+        Loading
+      </h1>
+    </>
+  );
+};
 
 function CustomerList() {
-  // Table data as an array of objects
-  const [loanDetails] = useState([{
-      Slno:"",
-      FirstName: "",
-      LastName: "",
-      Address: "",
-      City: "",
-      State: "",
-      Contact: "",
-      Email: "",
-      Aadhaar: "",
-      pan: "",
-      BankName: "",
-      BranchName: "",
-      accountNo: "",
-      IFSC: "",
-      GuarantorFirstName:"",
-      GuarantorLastName: "",
-      GuarantorAddress: "",
-      GuarantorCity: "",
-      GuarantorState: "K",
-      GuarantorContact: "",
-      GuarantorEmail: "",
-      GuarantorAadhar: "",
-      GuarantorPan: "",
-      GuarantorBankName: "",
-      GuarantorBranchName: "",
-      GuarantorAccountNo: "",
-      GuarantorIFSC: "",
-      LoanDate: "",
-      LoanAmount: "",
-      Period: "",
-      LoanEndDate: "",
-      Interest: "",
-      InterestAmount: ""
-}]);
+  const [loading, setLoading] = useState(true);
+  const [loanDetails, setLoanDetails] = useState([
+    {
+      Slno: "",
+      userfirstname: "",
+      userlastname: "",
+      useraddress: "",
+      usercity: "",
+      userstate: "", // Corrected typo
+      usercontact: "",
+      useremail: "",
+      useradhaar: "",
+      userpan: "",
+      userbank: "",
+      userbranch: "",
+      useraccount: "",
+      userifsc: "",
+      guarantorfirstname: "",
+      guarantorlastname: "",
+      guarantoraddress: "",
+      guarantorcity: "",
+      guarantorstate: "K",
+      guarantorcontact: "",
+      guaranteoremail: "",
+      guarantoradhaar: "",
+      guarantorpan: "",
+      guarantorbank: "",
+      guarantorbranch: "",
+      guarantoraccount: "",
+      guarantorifsc: "",
+      loandate: "",
+      loanamt: "",
+      loanperoid: "", // Corrected typo
+      loanenddate: "",
+      loaninterest: "",
+      loaninterestamt: "",
+    },
+  ]);
 
-  return (
-    <div className="body">
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        "http://localhost:5000/api/customerlist"
+      );
+      setLoanDetails(response.data);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  return loading ? (  <ShowLoading />) : (
+  <div className="body">
       <h1>Loan Details Table</h1>
       <table border="1">
         <thead>
           <tr>
-            <th>Src</th>
-            <th>FirstName</th>
-            <th>LastName</th>
+            <th>Slno</th>
+            <th>First Name</th>
+            <th>Last Name</th> 
             <th>Address</th>
             <th>City</th>
             <th>State</th>
             <th>Contact</th>
             <th>Email</th>
-            <th>Aadhaar</th>
-            <th>PAN</th>
+            <th>Aadhaar</th> 
+            <th>PAN</th> 
             <th>Bank Name</th>
-            <th>Branch Name</th>
-            <th>Account No</th>
+            <th>Branch Name</th> 
+            <th>Account No</th> 
             <th>IFSC</th>
-            <th>Guarantor FirstName</th>
+            <th>Guarantor First Name</th> 
             <th>Guarantor Last Name</th>
-            <th>Guarantor Address</th>
+            <th>Guarantor Address</th> 
             <th>Guarantor City</th>
-            <th>Guarantor State</th>
+            <th>Guarantor State</th> 
             <th>Guarantor Contact</th>
-            <th>Guarantor Email</th>
-            <th>Guarantor Aadhar</th>
-            <th>Guarantor Pan</th>
-            <th>Guarantor BankName</th>
-            <th>Guarantor BranchName</th>
-            <th>Guarantor AccountNo</th>
-            <th>Guarantor ifsc</th>
-            <th>Loan Date</th>
+            <th>Guarantor Email</th> 
+            <th>Guarantor Aadhaar</th>
+            <th>Guarantor PAN</th>
+            <th>Guarantor Bank Name</th>
+            <th>Guarantor Branch Name</th> 
+            <th>Guarantor Account No</th>
+            <th>Guarantor IFSC</th> 
+            <th>Loan Date</th> 
             <th>Loan Amount</th>
-            <th>Period</th>
-            <th>Loan End Date</th>
-            <th>Interest</th>
+            <th>Loan Period</th>
+            <th>Loan End Date</th> 
+            <th>Interest</th> 
             <th>Interest Amount</th>
           </tr>
         </thead>
         <tbody>
           {loanDetails.map((detail, index) => (
             <tr key={index}>
-              <td>{detail.Src}</td>
-              <td>{detail.FirstName}</td>
-              <td>{detail.LastName}</td>
-              <td>{detail.Address}</td>
-              <td>{detail.City}</td>
-              <td>{detail.State}</td>
-              <td>{detail.Contact}</td>
-              <td>{detail.Email}</td>
-              <td>{detail.aadhaar}</td>
-              <td>{detail.pan}</td>
-              <td>{detail.bankName}</td>
-              <td>{detail.branchName}</td>
-              <td>{detail.accountNo}</td>
-              <td>{detail.ifsc}</td>
-              <td>{detail.guarantorFirstName}</td>
-              <td>{detail.guarantorLastName}</td>
-              <td>{detail.guarantorAddress}</td>
-              <td>{detail.guarantorCity}</td>
-              <td>{detail.guarantorState}</td>
-              <td>{detail.guarantorContact}</td>
-              <td>{detail.guarantorEmail}</td>
-              <td>{detail.GuarantorAadhar}</td>
-              <td>{detail.GuarantorPan}</td>
-              <td>{detail.GuarantorBankName}</td>
-              <td>{detail.GuarantorBranchName}</td>
-              <td>{detail.GuarantorAccountNo}</td>
-              <td>{detail.GuarantorIFSC}</td>
-              <td>{detail.LoanDate}</td>
-              <td>{detail.LoanAmount}</td>
-              <td>{detail.Period}</td>
-              <td>{detail.LoanEndDate}</td>
-              <td>{detail.Interest}</td>
-              <td>{detail.InterestAmount}</td>
+              <td>{detail.id}</td>
+              <td>{detail.userfirstname}</td>
+              <td>{detail.userlastname}</td>
+              <td>{detail.useraddress}</td>
+              <td>{detail.usercity}</td>
+              <td>{detail.userstate}</td>
+              <td>{detail.usercontact}</td>
+              <td>{detail.useremail}</td>
+              <td>{detail.useradhaar}</td>
+              <td>{detail.userpan}</td>
+              <td>{detail.userbank}</td>
+              <td>{detail.userbranch}</td>
+              <td>{detail.useraccount}</td>
+              <td>{detail.userifsc}</td>
+              <td>{detail.guarantorfirstname}</td>
+              <td>{detail.guarantorlastname}</td>
+              <td>{detail.guarantoraddress}</td>
+              <td>{detail.guarantorcity}</td>
+              <td>{detail.guarantorstate}</td>
+              <td>{detail.guarantorcontact}</td>
+              <td>{detail.guaranteoremail}</td>
+              <td>{detail.guarantoradhaar}</td>
+              <td>{detail.guarantorpan}</td>
+              <td>{detail.guarantorbank}</td>
+              <td>{detail.guarantorbranch}</td>
+              <td>{detail.guarantoraccount}</td>
+              <td>{detail.guarantorifsc}</td>
+              <td>{detail.loandate}</td>
+              <td>{detail.loanamt}</td>
+              <td>{detail.loanperoid}</td>
+              <td>{detail.loanenddate}</td>
+              <td>{detail.loaninterest}</td>
+              <td>{detail.loaninterestamt}</td>
             </tr>
           ))}
         </tbody>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../cssFiles/Transit.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import UpdateTransactionDetails from "./UpdateTransactionDetails";
 
 function Transit() {
   // State to hold table data
@@ -11,51 +12,57 @@ function Transit() {
       firstname: "",
       lastname: "",
       contact: "",
-      loanamount:"" ,
-      peroid: "",
+      loanamount: "",
+      period: "",
       paymentdate: "",
       amount: "",
       balance: "",
-    }
+    },
   ]);
 
-    useEffect(()=>{
-      fetchData();
-    },[])
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [userfirstname,setUserfirstname] = useState("")
 
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:5000/api/transit"
-        );
-        let result=response.data;
-        // Object.values(result).forEach(element=>{
-        //   setTransactions(element)
-        // })
-       setTransactions(result)
-      } catch (error) {
-        console.error("There was an error fetching the data!", error);
-      }
-    };
+  // State to control the visibility of the UpdateTransactionDetails component
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/transit");
+      const result = response.data;
+      setTransactions(result);
+    } catch (error) {
+      console.error("There was an error fetching the data!", error);
+    }
+  };
 
   // Delete Row Functionality
   const handleDelete = async (id) => {
     try {
-   await axios.delete(`http://localhost:5000/api/transit-delete/${id}`)
-    } catch(error) {
-      console.log()
+      await axios.delete(`http://localhost:5000/api/transit-delete/${id}`);
+    } catch (error) {
+      console.log();
     }
+    setTransactions(transactions.filter((item) => item.id !== id));
   };
 
-  // Update Row (Placeholder functionality)
-  const handleUpdate = (id) => {
-   
+  const handleUpdate = (transaction) => {
+    setUserfirstname(transaction)
+    setShowUpdate(true);
+
   };
 
-  return (
+  return showUpdate ? (
+    <UpdateTransactionDetails userfirstname={userfirstname}/>
+  ) : (
     <div className="App">
       <h1>Transaction Details</h1>
-     <button className="add-btn"><Link to="/transactions" >Add Transactions</Link></button>    
+      <button className="add-btn">
+        <Link to="/transactions">Add Transactions</Link>
+      </button>
       <table>
         <thead>
           <tr>
@@ -85,13 +92,12 @@ function Transit() {
               <td>{transaction.amount}</td>
               <td>{transaction.balance}</td>
               <td>
-                <Link to='/transit/update-details'>
                 <button
                   className="update-btn"
-                  onClick={() => handleUpdate(transaction.id)}
+                  onClick={() => handleUpdate(transaction.firstname)}
                 >
                   Update
-                </button></Link>
+                </button>
               </td>
               <td>
                 <button
@@ -105,7 +111,7 @@ function Transit() {
           ))}
         </tbody>
       </table>
-      <p>Showing 1 to  {transactions.length} of 2 entries</p>
+      <p>Showing 1 to {transactions.length} entries </p>
     </div>
   );
 }

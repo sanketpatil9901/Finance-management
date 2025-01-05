@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FormContainer,
   Title,
@@ -8,47 +8,60 @@ import {
   Button,
 } from "../cssFiles/UpdateTransactionsDetails";
 import axios from "axios";
-function LoanUpdateForm() {
-  // Declare state for each input field
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [contact, setContact] = useState("");
-  const [loanAmt, setLoanAmt] = useState("");
-  const [period, setPeriod] = useState("");
-  const [paymentDate, setPaymentDate] = useState("");
-  const [amount, setAmount] = useState("");
-  const [balance, setBalance] = useState("");
+
+  const UpdateTransactionDetails = ({userfirstname}) =>{
+  // Declare state for form data
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    contact: "",
+    loanamount: "",
+    peroid: "",
+    paymentdate:"",
+    amount: "",
+    balance: "",
+  });
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Here, you can add your form submission logic, e.g., sending the data to a server
+    console.log(formData);
   };
+
+  const update = ()=>{
+    try {
+      axios.post(`http://localhost:5000/api/updatetransaction/${userfirstname}`,{formData})
+      .then(response=>{
+        alert(response.data)
+      })
+    } catch (error) {
+      
+    }
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/transactiondetails"
-        );
-       
-        const data = response.data[0]; // Assuming you want to set data from the first item in the array
-        setFirstName(data.firstname);
-        setLastName(data.lastname);
-        setContact(data.contact);
-        setLoanAmt(data.loanamount);
-        setPeriod(data.peroid)
-        setPaymentDate(data.paymentdate);
-        setAmount(data.amount);
-        setBalance(data.balance);
-        console.log(response)
-        
+        const response = await axios.get(`http://localhost:5000/api/update/${userfirstname}`);
+        setFormData(response.data[0])
       } catch (error) {
         console.error("There was an error fetching the data!", error);
       }
     };
     fetchData();
-  }, []);
+  }, [userfirstname]);
 
   return (
     <FormContainer>
@@ -58,8 +71,9 @@ function LoanUpdateForm() {
           <Label>First Name:</Label>
           <Input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            name="userfirstname"
+            value={formData.firstname}
+            onChange={handleInputChange}
             placeholder="Enter your first name"
             required
           />
@@ -69,8 +83,9 @@ function LoanUpdateForm() {
           <Label>Last Name:</Label>
           <Input
             type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            name="userlastname"
+            value={formData.lastname}
+            onChange={handleInputChange}
             placeholder="Enter your last name"
             required
           />
@@ -80,8 +95,9 @@ function LoanUpdateForm() {
           <Label>Contact Number:</Label>
           <Input
             type="text"
-            value={contact}
-            onChange={(e) => setContact(e.target.value)}
+            name="usercontact"
+            value={formData.contact}
+            onChange={handleInputChange}
             placeholder="Enter your contact number"
             required
           />
@@ -91,8 +107,9 @@ function LoanUpdateForm() {
           <Label>Loan Amount:</Label>
           <Input
             type="number"
-            value={loanAmt}
-            onChange={(e) => setLoanAmt(e.target.value)}
+            name="loanamt"
+            value={formData.loanamount}
+            onChange={handleInputChange}
             placeholder="Enter the loan amount"
             required
           />
@@ -102,8 +119,9 @@ function LoanUpdateForm() {
           <Label>Loan Period:</Label>
           <Input
             type="text"
-            value={period}
-            onChange={(e) => setPeriod(e.target.value)}
+            name="loanperoid"
+            value={formData.peroid}
+            onChange={handleInputChange}
             placeholder="Enter loan period (months/years)"
             required
           />
@@ -113,8 +131,9 @@ function LoanUpdateForm() {
           <Label>Payment Date:</Label>
           <Input
             type="text"
-            value={paymentDate}
-            onChange={(e) => setPaymentDate(e.target.value)}
+            name="loanenddate"
+            value={formData.paymentdate}
+            onChange={handleInputChange}
             required
           />
         </FormGroup>
@@ -123,8 +142,9 @@ function LoanUpdateForm() {
           <Label>Amount Paid:</Label>
           <Input
             type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            name="amount"
+            value={formData.amount}
+            onChange={handleInputChange}
             placeholder="Enter the amount paid"
             required
           />
@@ -134,17 +154,18 @@ function LoanUpdateForm() {
           <Label>Remaining Balance:</Label>
           <Input
             type="number"
-            value={balance}
-            onChange={(e) => setBalance(e.target.value)}
+            name="balance"
+            value={formData.balance}
+            onChange={handleInputChange}
             placeholder="Enter remaining balance"
             required
           />
         </FormGroup>
 
-        <Button type="submit">Update Loan</Button>
+         <Button type="submit" onClick={update}>Update Loan</Button> 
       </form>
     </FormContainer>
   );
 }
 
-export default LoanUpdateForm;
+export default UpdateTransactionDetails;
