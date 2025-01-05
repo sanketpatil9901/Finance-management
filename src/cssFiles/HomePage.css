@@ -214,7 +214,70 @@ header {
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .header .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    margin: 0 15px;
+  }
+
+  .hero-section {
+    padding: 100px 30px;
+  }
+
+  .hero-section .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-section .hero-content p {
+    font-size: 1.3rem;
+  }
+
+  .features-section {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
+
+  .features-section .feature {
+    margin-bottom: 30px;
+  }
+
+  .services {
+    flex-direction: column;
+    padding: 80px 20px;
+  }
+
+  .service {
+    width: 80%;
+    margin-bottom: 40px;
+  }
+
+  .loan-form {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 20px;
+  }
+
+  .hero-section .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section .hero-content p {
+    font-size: 1.2rem;
+  }
+
   .features-section,
   .services {
     flex-direction: column;
@@ -227,7 +290,70 @@ header {
   }
 
   .loan-form {
+    width: 85%;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    padding: 10px 15px;
+  }
+
+  .nav-links {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px;
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .hero-section .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section .hero-content p {
+    font-size: 1rem;
+  }
+
+  .features-section {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+
+  .service {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .loan-form {
     width: 90%;
-    padding: 30px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-section {
+    padding: 50px 15px;
+  }
+
+  .hero-section .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-section .hero-content p {
+    font-size: 1rem;
+  }
+
+  .loan-form {
+    width: 90%;
+    padding: 15px;
   }
 }
