@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Finance-management/static/css/main.2da59412.css",
+    "main.css": "/Finance-management/static/css/main.b061e7ba.css",
     "main.js": "/Finance-management/static/js/main.ac006e12.js",
     "static/js/488.75f1601f.chunk.js": "/Finance-management/static/js/488.75f1601f.chunk.js",
     "index.html": "/Finance-management/index.html",
-    "main.2da59412.css.map": "/Finance-management/static/css/main.2da59412.css.map",
+    "main.b061e7ba.css.map": "/Finance-management/static/css/main.b061e7ba.css.map",
     "main.ac006e12.js.map": "/Finance-management/static/js/main.ac006e12.js.map",
     "488.75f1601f.chunk.js.map": "/Finance-management/static/js/488.75f1601f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2da59412.css",
+    "static/css/main.b061e7ba.css",
     "static/js/main.ac006e12.js"
   ]
 }
