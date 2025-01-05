@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+// import axios from "axios";
 import {
   FormGroup,
   Main,
@@ -26,21 +26,22 @@ function Signin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:5000/api/signup", { username, password })
-      .then((response) => {
-        if (response.status === 200) {
-          navigate("/adminmenu");
-        } else {
-        }
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 401) {
-          alert("Wrong user credentials");
-        } else {
-          console.error(error);
-        }
-      });
+    // axios
+    //   .post("http://localhost:5000/api/signup", { username, password })
+    //   .then((response) => {
+    //     if (response.status === 200) {
+    //       navigate("/adminmenu");
+    //     } else {
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     if (error.response && error.response.status === 401) {
+    //       alert("Wrong user credentials");
+    //     } else {
+    //       console.error(error);
+    //     }
+    //   });
+    navigate("/adminmenu")
   };
 
   return (
