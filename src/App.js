@@ -20,7 +20,7 @@ import StaffLoginPage from './Components/StaffLoginPage';
 function App() {
   return (
     <div>
-        <Router basename='/'>
+        <Router basename='/Finance-management'>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/admin" element={<Admin/>}/>
