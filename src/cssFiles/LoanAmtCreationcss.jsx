@@ -63,8 +63,9 @@ export const FormGroup1 = styled.div`
 `;
 
 export const P = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin: 15px 0;
+  text-align:left;
   color: #333;
 
   @media (max-width: 768px) {
@@ -84,6 +85,7 @@ export const Div1 = styled.div`
 
 export const Label = styled.label`
   font-size: 1rem;
+  text-align:left;
   color: #555;
 
   @media (max-width: 768px) {

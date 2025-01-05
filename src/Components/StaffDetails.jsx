@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../cssFiles/StaffDetails.css'; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const StaffDetailsForm = () => {
@@ -13,6 +14,7 @@ const StaffDetailsForm = () => {
     username: '',
     password: ''
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,6 +46,7 @@ const StaffDetailsForm = () => {
       username: '',
       password: ''
     });
+    navigate(-1);
   };
 
   return (
