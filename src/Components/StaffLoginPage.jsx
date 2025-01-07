@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Container, FormWrapper, Title, Label, Input, Button, SocialButton, SocialButtonItem, Icon } from "../cssFiles/StaffLoginPage";
+import { Container, FormWrapper, Title, Label, Input, Button } from "../cssFiles/StaffLoginPage";
 import axios from "axios";
 
 const StaffLoginPage = () => {
-
   const [staff,setStaff] = useState({
     staffname:"",
     staffpassword:""
@@ -42,14 +41,6 @@ const StaffLoginPage = () => {
           <Label htmlFor="password">Password</Label>
           <Input type="password" placeholder="Password" name="staffpassword" id="password" value={staff.staffpassword} onChange={handlechange}/>
           <Button onClick={submit}>Log In</Button>
-          <SocialButton>
-            <SocialButtonItem>
-              <Icon className="fab fa-google" /> Google
-            </SocialButtonItem>
-            <SocialButtonItem>
-              <Icon className="fab fa-facebook" /> Facebook
-            </SocialButtonItem>
-          </SocialButton>
         </FormWrapper>
       </Container>
     </>

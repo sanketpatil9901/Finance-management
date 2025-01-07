@@ -26,8 +26,10 @@ export const Title = styled.h3`
 export const Label = styled.label`
   display: block;
   margin: 20px 0 10px;
-  font-size: 14px;
+  font-size: 18px;
   color: #333;
+  text-align:left;
+  font-weight:bold;
 `;
 
 export const Input = styled.input`

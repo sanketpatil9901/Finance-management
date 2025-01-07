@@ -61,6 +61,7 @@ export const Label = styled.label`
   margin-bottom: 8px;
   font-weight: bold;
   color: #555;
+  align -items:left;
 
   @media (max-width: 480px) {
     font-size: 0.9rem;

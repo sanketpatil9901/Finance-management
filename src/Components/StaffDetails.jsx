@@ -29,6 +29,7 @@ const StaffDetailsForm = () => {
     // Handle form submission logic here
     try {
          axios.post('http://localhost:5000/api/staffdetails',{formData})
+         alert("Data saved successfully")
     } catch (error) {
       console.log(error)
     }
