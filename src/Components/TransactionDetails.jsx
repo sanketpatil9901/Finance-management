@@ -101,10 +101,10 @@ const TransactionDeatails=({userfirstname}) =>{
             <input type="balance" id="balance" name="balance" value={transitData1.balance} onChange={handlechange1}  required />
           </div>
           <div className="form-group">
-            <button className="btn" id="save" onClick={save}>
+            <button className="btn1" id="save" onClick={save}>
               Save
             </button>
-            <button className="btn" id="cancel">
+            <button className="btn1" id="cancel">
               Cancel
             </button>
           </div>

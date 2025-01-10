@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import axios from "axios";
@@ -12,7 +12,9 @@ import {
   PasswordToggleIcon,
   SubmitButton,
   GlobalStyle,
+  Main1
 } from "../cssFiles/Admincss";
+import AdminNavbar from "./AdminNavbar";
 
 function Signin() {
   const [username, setUsername] = useState("");
@@ -45,9 +47,12 @@ function Signin() {
   };
 
   return (
+    <>
     <FormGroup>
+      <AdminNavbar/>
       <GlobalStyle />
       <Main>
+        <Main1>
         <Title>Sign Up</Title>
         <form onSubmit={handlesubmit}>
           <Label htmlFor="username">Username:</Label>
@@ -75,8 +80,10 @@ function Signin() {
           </div>
           <SubmitButton type="submit">Sign Up</SubmitButton>
         </form>
-      </Main>
+                </Main1>
+     </Main>
     </FormGroup>
+    </>
   );
 }
 

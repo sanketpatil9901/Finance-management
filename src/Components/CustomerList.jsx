@@ -21,7 +21,7 @@ function CustomerList() {
       userlastname: "",
       useraddress: "",
       usercity: "",
-      userstate: "", // Corrected typo
+      userstate: "",
       usercontact: "",
       useremail: "",
       useradhaar: "",
@@ -45,7 +45,8 @@ function CustomerList() {
       guarantorifsc: "",
       loandate: "",
       loanamt: "",
-      loanperoid: "", // Corrected typo
+      loanfirstname:"",
+      loanperoid: "", 
       loanenddate: "",
       loaninterest: "",
       loaninterestamt: "",
@@ -63,7 +64,7 @@ function CustomerList() {
     fetchData();
   }, []);
 
-  return loading ? (  <ShowLoading />) : (
+  return loading ? (  <ShowLoading /> ) : (
   <div className="body">
       <h1>Loan Details Table</h1>
       <table border="1">
@@ -98,6 +99,7 @@ function CustomerList() {
             <th>Guarantor IFSC</th> 
             <th>Loan Date</th> 
             <th>Loan Amount</th>
+            <th>Loan Firstname</th>
             <th>Loan Period</th>
             <th>Loan End Date</th> 
             <th>Interest</th> 
@@ -136,6 +138,7 @@ function CustomerList() {
               <td>{detail.guarantorifsc}</td>
               <td>{detail.loandate}</td>
               <td>{detail.loanamt}</td>
+              <td>{detail.loanfirstname}</td>
               <td>{detail.loanperoid}</td>
               <td>{detail.loanenddate}</td>
               <td>{detail.loaninterest}</td>

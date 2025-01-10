@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { createGlobalStyle } from 'styled-components'
+import { Link } from "react-router-dom";
+
+
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -15,22 +18,28 @@ export const FormGroup = styled.div`
   width: 100%;
   position: absolute;
   font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 
 `;
 
 export const Main = styled.div`
+  display: flex;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  
+`;
+
+ export const Main1 = styled.div `
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 20px;
   width: 300px;
   background: transparent;
-  opacity: 1;
   backdrop-filter: blur(10px);
+  opacity: 1;
 
-  @media (max-width: 768px) {
+   @media (max-width: 768px) {
     max-width: 80%;
     padding: 15px;
   }
@@ -39,10 +48,17 @@ export const Main = styled.div`
     max-width: 95%;
     padding: 10px;
   }
-`;
+ `
+
+ export const Nav = styled.div`
+   background-color: #fff;
+   color:white;
+ `
 
 export const Title = styled.h2`
   text-align: center;
+  font-size:1.6rem;
+  font-weight:bold;
   color: black;
   margin-bottom: 20px;
 
@@ -59,6 +75,7 @@ export const Label = styled.label`
   font-size: 1.2em;
   display: block;
   margin-bottom: 5px;
+  text-align: left;
   color: black;
   font-weight: bold;
 
@@ -113,4 +130,14 @@ export const PasswordToggleIcon = styled.span`
   position: absolute;
   right: 5%;
   top: 50%;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  position: relative;
+  color:black;
+  font-size:1.2rem
+  margin: 40px 0px;
+  font-weight:bold;
+  top:10px;
 `;

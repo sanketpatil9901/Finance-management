@@ -16,6 +16,12 @@ export const Div = styled.div`
     height: auto;
     padding: 40px 20px;
   }
+
+   @media (max-width: 480px) {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+  }
 `;
 
 export const Calculator = styled.div`

@@ -68,7 +68,7 @@
     background: transparent;
   }
   
-  .btn {
+  .btn1 {
     width: 100%;
     padding: 10px;
     background: transparent;
@@ -78,7 +78,7 @@
     cursor: pointer;
   }
   
-  .btn:hover {
+  .btn1:hover {
     background-color: gray;
   }
   
