@@ -1,29 +1,48 @@
-.body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 90%;  
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #00BCD4;
-    color: white;
-  }
-  
-  td {
-    background-color: #f0f8ff;
-  }
-  
-  h1 {
-    margin-top: 20px;
-    color: #333;
-  }
+/* CustomerList.css */
+
+.body-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.customerlist-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px auto;
+  /* Hide the scrollbar */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.customerlist-table-container::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+.customerlist-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.customerlist-title {
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.customerlist-header {
+  padding: 10px;
+  text-align: center;
+  background-color: #333;
+  color: white;
+}
+
+.customerlist-cell {
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f8ff;
+}
+
+.customerlist-title {
+  margin-top: 20px;
+  color: #333;
+}

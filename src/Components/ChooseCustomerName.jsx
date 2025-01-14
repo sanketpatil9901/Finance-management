@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../cssFiles/ChooseCustomerName.css";
 import axios from "axios";
 import TransactionDeatails from "./TransactionDetails";
+import AdminMenu from "./AdminMenu";
 
 function ChooseCustomerName() {
   const [selectedOption, setSelectedOption] = useState([]);
@@ -36,6 +37,8 @@ function ChooseCustomerName() {
   if (loading) return <h1>Loading..</h1>;
 
   return showchild ? <TransactionDeatails userfirstname={selectedValue}/> : (
+    <>
+    <AdminMenu/>
     <div className="container">
       <select value={selectedValue} onChange={handleChange}>
         <option value="Selct an option">Select the name</option>
@@ -49,6 +52,7 @@ function ChooseCustomerName() {
       </select>
       <button onClick={viewhandle}>view</button>
     </div>
+    </>
   );
 }
 export default ChooseCustomerName;

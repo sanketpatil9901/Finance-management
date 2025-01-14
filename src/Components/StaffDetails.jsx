@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../cssFiles/StaffDetails.css'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AdminMenu from './AdminMenu';
 
 const StaffDetailsForm = () => {
   const [formData, setFormData] = useState({
@@ -51,6 +52,8 @@ const StaffDetailsForm = () => {
   };
 
   return (
+    <>
+    <AdminMenu/>
     <div className='bodyback'>
     <form onSubmit={handleSubmit} className="staff-form">
       <h2>Staff Details</h2>
@@ -132,6 +135,7 @@ const StaffDetailsForm = () => {
       </div>
     </form>
     </div>
+    </>
   );
 };
 

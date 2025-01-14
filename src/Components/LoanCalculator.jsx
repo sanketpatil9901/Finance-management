@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import HomePageMenu from './HomePageMenu'
 import {Calculator,Title,Input,FormGroup,Label,Button,Results,ResultText,Div} from "../cssFiles/LoanCalculator";
 
 const LoanCalculator = () => {
@@ -23,6 +23,8 @@ const LoanCalculator = () => {
     setTotalInterest(interestAmount.toFixed(2));
   };
   return (
+    <>
+    <HomePageMenu/>
     <Div>
       <Calculator>
         <Title>Loan Calculator</Title>{" "}
@@ -73,6 +75,7 @@ const LoanCalculator = () => {
         </Results>
       </Calculator>
       </Div>
+      </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, FormWrapper, Title, Label, Input, Button } from "../cssFiles/StaffLoginPage";
 import axios from "axios";
+import HomePageMenu from "./HomePageMenu";
 
 const StaffLoginPage = () => {
   const [staff,setStaff] = useState({
@@ -34,6 +35,7 @@ const StaffLoginPage = () => {
 
   return (
     <>
+    <HomePageMenu/>
       <Container>
         <FormWrapper>
           <Title>Staff Login</Title> <Label htmlFor="username">Username</Label>

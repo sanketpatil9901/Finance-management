@@ -3,6 +3,7 @@ import "../cssFiles/Transit.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import UpdateTransactionDetails from "./UpdateTransactionDetails";
+import AdminMenu from "./AdminMenu";
 
 function Transit() {
   // State to hold table data
@@ -58,14 +59,16 @@ function Transit() {
   return showUpdate ? (
     <UpdateTransactionDetails userfirstname={userfirstname}/>
   ) : (
+    <>
+    <AdminMenu/>
     <div className="App">
-      <h1>Transaction Details</h1>
-      <button className="add-btn">
-        <Link to="/transactions">Add Transactions</Link>
+      <h1 className="transit-h1">Transaction Details</h1>
+      <button className="transit-add-btn">
+        <Link className="transit-link" to="/transactions">Add Transactions</Link>
       </button>
-      <table>
-        <thead>
-          <tr>
+      <table className="transit-table">
+        <thead className="transit-thead">
+          <tr className="transit-tr">
             <th>Sr#</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -113,6 +116,7 @@ function Transit() {
       </table>
       <p>Showing 1 to {transactions.length} entries </p>
     </div>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, {  useEffect, useState } from "react";
 import "../cssFiles/TransactionsDetails.css";
 import axios from "axios";
+import AdminMenu from "./AdminMenu";
 
 const TransactionDeatails=({userfirstname}) =>{
   const [transitData, setTransitData] = useState({
@@ -8,7 +9,7 @@ const TransactionDeatails=({userfirstname}) =>{
     userlastname: "",
     usercontact: "",
     loanamt: "",
-    loanperiod: "",
+    loanperoid: "",
   });
 
   const [transitData1,setTransitData1] = useState({
@@ -21,7 +22,6 @@ const TransactionDeatails=({userfirstname}) =>{
   const fetchdata=async ()=>{
    try {
    const result = await axios.get(`http://localhost:5000/api/getloandetails/${userfirstname}`)
-   console.log(result.data[0])
    setTransitData(result.data[0])
    } catch (error) {
     console.log(error)
@@ -57,6 +57,7 @@ const TransactionDeatails=({userfirstname}) =>{
    };
   return (
     <>
+    <AdminMenu/>
       <div className="header5">
         <div className="header2">
           <h1 className="h1">Enter Transaction Details</h1>
@@ -79,7 +80,7 @@ const TransactionDeatails=({userfirstname}) =>{
           </div>
           <div className="form-group">
             <label htmlFor="peroid">Peroid</label>
-            <input type="loan_amt" id="peroid" name="loanperiod" onChange={handlechange}  required value={transitData.loanperiod}/>
+            <input type="loan_amt" id="peroid" name="loanperoid" onChange={handlechange}  required value={transitData.loanperoid}/>
           </div>
           <div className="form-group">
             <label htmlFor="payement_date">Payement Date</label>

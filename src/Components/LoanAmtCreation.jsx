@@ -11,8 +11,9 @@ import {
   Button,
 } from "../cssFiles/LoanAmtCreationcss"; // Import styled components
 import axios from "axios";
+import AdminMenu from "./AdminMenu";
 
-function LoanAmtCreation() {
+function LoanAmtCreation(props) {
   const [loanAmtcreate, setLoanAmtcreate] = useState({
     userfirstname: "",
     userlastname: "",
@@ -96,12 +97,12 @@ function LoanAmtCreation() {
   else 
   alert("All fields are required")
   }
-
-
   return (
+    <>
+    <AdminMenu/>
     <Main>
       <FormGroup>
-        <H1>Loan Amount Creation</H1>
+        <H1>{props.name} Loan Amount Creation</H1>
 
         <P>User Information</P>
         <FormGroup1>
@@ -396,10 +397,10 @@ function LoanAmtCreation() {
             />
           </Div1>
         </FormGroup1>
-
         <Button onClick={savedata}>Save</Button>
       </FormGroup>
     </Main>
+    </>
   );
 }
 

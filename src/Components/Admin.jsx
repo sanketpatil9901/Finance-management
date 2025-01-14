@@ -43,7 +43,7 @@ function Signin() {
     //       console.error(error);
     //     }
     //   });
-    navigate("/adminmenu")
+    navigate("/adminhome")
   };
 
   return (

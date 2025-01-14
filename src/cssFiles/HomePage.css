@@ -8,13 +8,15 @@ body {
 }
 
 header {
-  background-color: #1b3c4c;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
+  background: transparent;
+  color: black;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 100%;
 }
 
 .header .logo {
@@ -25,13 +27,14 @@ header {
 
 .nav-links {
   display: flex;
+  gap: 20px;
 }
 
 .nav-links a {
-  color: #fff;
+  color: #f4a261;
   text-decoration: none;
-  margin: 0 20px;
   font-size: 1.2rem;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
@@ -40,8 +43,8 @@ header {
 }
 
 .contact-button {
-  background-color: #2d6a4f;
-  color: white;
+  background: transparent;
+  color: #f4a261;
   padding: 12px 25px;
   font-size: 1.1rem;
   border: none;
@@ -53,10 +56,15 @@ header {
 .contact-button:hover {
   background-color: #1b4d35;
 }
-
+.sectioncombine {
+  background-image: url("https://img.freepik.com/free-photo/panoramic-view-dubai-city-illuminated-neon-spectrum_23-2151305340.jpg?t=st=1736764886~exp=1736768486~hmac=ef11bc0b6413779fa02e1c4eeb291ea35b1f8c3b2deff1c3e84fc84d1df70012&w=996");
+}
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #33cc99, #3399ff);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
   padding: 120px 40px;
   text-align: center;
   color: white;
@@ -72,6 +80,7 @@ header {
   font-size: 1.5rem;
   font-weight: 400;
   margin-top: 10px;
+  color: #f1f7fc;
 }
 
 /* Features Section */
@@ -87,6 +96,8 @@ header {
 .features-section .feature {
   text-align: center;
   transition: transform 0.3s ease;
+  border-radius: 14px;
+  box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.1);
 }
 
 .features-section .feature:hover {
@@ -98,7 +109,6 @@ header {
   height: 90px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
@@ -221,20 +231,12 @@ header {
 @media (max-width: 1024px) {
   header {
     padding: 15px 20px;
-  }
-
-  .header .logo {
-    font-size: 1.8rem;
+    flex-direction: column;
   }
 
   .nav-links {
     flex-direction: column;
     align-items: center;
-  }
-
-  .nav-links a {
-    font-size: 1.1rem;
-    margin: 10px 0;
   }
 
   .hero-section {
@@ -275,6 +277,22 @@ header {
 }
 
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 10px 15px;
+  }
+
+  .nav-links {
+    text-align: center;
+    margin-top: 10px;
+    flex-direction: column;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+
   .hero-section {
     padding: 80px 20px;
   }
@@ -287,10 +305,18 @@ header {
     font-size: 1.2rem;
   }
 
-  .features-section,
+  .features-section {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
+
+  .features-section .feature {
+    margin-bottom: 30px;
+  }
+
   .services {
     flex-direction: column;
-    align-items: center;
+    padding: 80px 20px;
   }
 
   .service {
@@ -333,8 +359,10 @@ header {
     font-size: 1rem;
   }
 
-  .features-section {
+  .features-section,
+  .services {
     flex-direction: column;
+    align-items: center;
     padding: 50px 20px;
   }
 
@@ -365,5 +393,153 @@ header {
   .loan-form {
     width: 90%;
     padding: 15px;
+  }
+}
+
+.Home_marquee {
+  background-color: rgba(128, 128, 128, 0.447);
+  height: 50px;
+}
+
+.Home_marquee h1 {
+  color: rgb(238, 130, 182);
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 12px;
+}
+
+.footer {
+  background-color: #282c34;
+  color: #ffffff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.footer-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #61dafb;
+}
+
+.header1 {
+  background: transparent;
+  position: relative;
+  background-color: "";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.logo {
+  color:#f4a261;
+  flex: 1;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.nav-links {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  position: relative;
+}
+
+.navbar-list {
+  list-style: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-item {
+  padding: 5px;
+  margin: 0;
+}
+
+.navbar-item a {
+  color: #f4a261;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.navbar-item a:hover {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.contact-button {
+ background: transparent;
+  color: #f4a261;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.contact-button:hover {
+  background-color: white;
+}
+
+.hamburger-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  display: none;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+  .navbar-list {
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #1976d2;
+    display: none;
+  }
+  .navbar-list.open {
+    display: flex;
+  }
+  .hamburger-icon {
+    display: block;
   }
 }

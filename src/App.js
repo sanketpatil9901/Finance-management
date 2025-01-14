@@ -17,12 +17,13 @@ import StaffDetailsForm from './Components/StaffDetails';
 import StaffLoginPage from './Components/StaffLoginPage';
 import Adminchange from './Components/AdminPasswordChange'
 import AdminUsernameChange from './Components/AdminUsernameChange';
-import TypeOfLoan from './Components/TypeOfLoan'
+import TypeOfLoan from './Components/TypeOfLoan';
+import AdminHome from './Components/AdminHome'
 
 function App() {
   return (
     <div>
-        <Router basename='/Finance-management'>
+        <Router basename='Finance-management'>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/admin" element={<Admin/>}/>
@@ -30,7 +31,7 @@ function App() {
             <Route path="/loanamount" element={<TypeOfLoan/>} />
             <Route path='/customerlist' element={<CustomerList/>}/>
             <Route path='/transit' element={<Transit/>}/>
-            <Route path='/home' element={<HomePage/>}/>
+            <Route path='/home' element={<AdminHome/>}/>
             <Route path='/transactions' element={<ChooseCustomerName/>}/>
             <Route path='/loancalculator' element={<LoanCalculator/>}/>
             <Route path='/transit/update-details' element={<UpdateTransactionDetails/>}/>
@@ -38,7 +39,10 @@ function App() {
             <Route path='/staff-login' element={<StaffLoginPage/>}/>
             <Route path='/admin/updatepassword' element={<Adminchange/>} />
             <Route path='/admin/updateusername' element={<AdminUsernameChange/>}/>
-            <Route path='/loan' element={<LoanAmtCreation/>} />
+            <Route path='/loan/personal' element={<LoanAmtCreation name="Personal"/>} />
+            <Route path='/loan/vehicle' element={<LoanAmtCreation name="Vehicle"/>} />
+            <Route path='/loan/education' element={<LoanAmtCreation name="Education"/>} />
+            <Route path='/adminhome' element={<AdminHome/>}/>
           </Routes>
         </Router>      
     </div>
