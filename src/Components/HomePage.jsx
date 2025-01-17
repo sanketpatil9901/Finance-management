@@ -55,7 +55,7 @@ const HomePage = () => {
         <HomePageMenu/>
         <section className="hero-section">
           <div className="hero-content">
-            <h1 style={{ color: "white", WebkitTextStroke: "1px black" }}>
+            <h1 className="hero-content-h1" style={{ color: "white", WebkitTextStroke: "" }}>
               {" "}
               PATH TO PROFITABILITY
             </h1>

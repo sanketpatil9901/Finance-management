@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../cssFiles/CustomerList.css";
+import "../../cssFiles/CustomerList.css";
 import axios from "axios";
-import AdminMenu from './AdminMenu';
+import AdminMenu from '../AdminFiles/AdminMenu';
 
 export const ShowLoading = () => {
   return (

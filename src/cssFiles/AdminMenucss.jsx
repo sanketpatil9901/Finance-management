@@ -7,6 +7,7 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   background-color: #343a40;
   padding: 8px;
+ 
 `;
 
 export const NavbarList = styled.ul`
@@ -30,6 +31,7 @@ export const NavbarList = styled.ul`
     position: absolute;
     top: 50px;
     left: 0;
+     z-index:3;
     width: 100%;
     text-align:left;
     background-color: #343a40;

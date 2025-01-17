@@ -1,7 +1,7 @@
 import React from 'react';
-import { Nav } from '../cssFiles/Admincss';
+import { Nav } from '../../cssFiles/Admincss';
 import { NavLink } from 'react-router-dom';
-import '../cssFiles/AdminNavbar.css';
+import '../../cssFiles/AdminNavbar.css';
 
 function AdminNavbar() {
   return (

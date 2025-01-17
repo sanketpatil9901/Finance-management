@@ -39,6 +39,7 @@ export const Title = styled.h2`
   text-align: center;
   margin-bottom: 15px; /* Reduce margin */
   color: black;
+  font-weight:bold;
   font-size: 20px; /* Reduce font size */
 `;
 
@@ -51,6 +52,7 @@ export const Label = styled.label`
   color:black;
   margin-bottom: 5px; /* Reduce margin */
   font-weight: bold;
+  text-align:left;
   font-size: 18px; /* Reduce font size */
 `;
 

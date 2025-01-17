@@ -9,14 +9,14 @@ import {
 } from "../cssFiles/UpdateTransactionsDetails";
 import axios from "axios";
 
-  const UpdateTransactionDetails = ({userfirstname}) =>{
+  const UpdateTransactionDetails = (props) =>{
   // Declare state for form data
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    contact: "",
-    loanamount: "",
-    peroid: "",
+    userfirstname: "",
+    userlastname: "",
+    usercontact: "",
+    loanamt: "",
+    loanperoid: "",
     paymentdate:"",
     amount: "",
     balance: "",
@@ -42,7 +42,7 @@ import axios from "axios";
 
   const update = ()=>{
     try {
-      axios.post(`http://localhost:5000/api/updatetransaction/${userfirstname}`,{formData})
+      axios.post(`http://localhost:5000/api/updatetransaction?param1=${props.userfirstname}&param2=${props.balance}`,{formData})
       .then(response=>{
         alert(response.data)
       })
@@ -54,14 +54,14 @@ import axios from "axios";
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/update/${userfirstname}`);
+        const response = await axios.get(`http://localhost:5000/api/update?param1=${props.userfirstname}&param2=${props.balance}`);
         setFormData(response.data[0])
       } catch (error) {
         console.error("There was an error fetching the data!", error);
       }
     };
     fetchData();
-  }, [userfirstname]);
+  }, [props.userfirstname]);
 
   return (
     <FormContainer>
@@ -72,7 +72,7 @@ import axios from "axios";
           <Input
             type="text"
             name="userfirstname"
-            value={formData.firstname}
+            value={formData.userfirstname}
             onChange={handleInputChange}
             placeholder="Enter your first name"
             required
@@ -84,7 +84,7 @@ import axios from "axios";
           <Input
             type="text"
             name="userlastname"
-            value={formData.lastname}
+            value={formData.userlastname}
             onChange={handleInputChange}
             placeholder="Enter your last name"
             required
@@ -96,7 +96,7 @@ import axios from "axios";
           <Input
             type="text"
             name="usercontact"
-            value={formData.contact}
+            value={formData.usercontact}
             onChange={handleInputChange}
             placeholder="Enter your contact number"
             required
@@ -108,7 +108,7 @@ import axios from "axios";
           <Input
             type="number"
             name="loanamt"
-            value={formData.loanamount}
+            value={formData.loanamt}
             onChange={handleInputChange}
             placeholder="Enter the loan amount"
             required
@@ -120,7 +120,7 @@ import axios from "axios";
           <Input
             type="text"
             name="loanperoid"
-            value={formData.peroid}
+            value={formData.loanperoid}
             onChange={handleInputChange}
             placeholder="Enter loan period (months/years)"
             required

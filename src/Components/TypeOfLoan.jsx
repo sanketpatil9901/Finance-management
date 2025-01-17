@@ -12,7 +12,7 @@ import {
   CardText,
   StyledLink
 } from '../cssFiles/TypeOfLoan';
-import AdminMenu from "./AdminMenu";
+import AdminMenu from "./AdminFiles/AdminMenu";
 
 function AvailableLoans() {
   return (

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "../cssFiles/Transit.css";
+import "../../cssFiles/Transit.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import UpdateTransactionDetails from "./UpdateTransactionDetails";
-import AdminMenu from "./AdminMenu";
+import UpdateTransactionDetails from "../UpdateTransactionDetails";
+import AdminMenu from "../AdminFiles/AdminMenu";
 
 function Transit() {
   // State to hold table data
   const [transactions, setTransactions] = useState([
     {
       id: "",
-      firstname: "",
-      lastname: "",
-      contact: "",
-      loanamount: "",
-      period: "",
+      userfirstname: "",
+      userlastname: "",
+      usercontact: "",
+      loanamt: "",
+      loanperoid: "",
       paymentdate: "",
       amount: "",
       balance: "",
@@ -23,6 +23,7 @@ function Transit() {
 
   const [showUpdate, setShowUpdate] = useState(false);
   const [userfirstname,setUserfirstname] = useState("")
+  const [balance,setBalance] = useState("")
 
   // State to control the visibility of the UpdateTransactionDetails component
 
@@ -50,14 +51,15 @@ function Transit() {
     setTransactions(transactions.filter((item) => item.id !== id));
   };
 
-  const handleUpdate = (transaction) => {
-    setUserfirstname(transaction)
+  const handleUpdate = (userfirstname,balance) => {
+    setUserfirstname(userfirstname);
+    setBalance(balance)
     setShowUpdate(true);
 
   };
 
   return showUpdate ? (
-    <UpdateTransactionDetails userfirstname={userfirstname}/>
+    <UpdateTransactionDetails userfirstname={userfirstname} balance={balance}/>
   ) : (
     <>
     <AdminMenu/>
@@ -86,18 +88,18 @@ function Transit() {
           {transactions.map((transaction, index) => (
             <tr key={transaction.id}>
               <td>{transaction.id}</td>
-              <td>{transaction.firstname}</td>
-              <td>{transaction.lastname}</td>
-              <td>{transaction.contact}</td>
-              <td>{transaction.loanamount}</td>
-              <td>{transaction.peroid}</td>
+              <td>{transaction.userfirstname}</td>
+              <td>{transaction.userlastname}</td>
+              <td>{transaction.usercontact}</td>
+              <td>{transaction.loanamt}</td>
+              <td>{transaction.loanperoid}</td>
               <td>{transaction.paymentdate}</td>
               <td>{transaction.amount}</td>
               <td>{transaction.balance}</td>
               <td>
                 <button
                   className="update-btn"
-                  onClick={() => handleUpdate(transaction.firstname)}
+                  onClick={() => handleUpdate(transaction.userfirstname,transaction.balance)}
                 >
                   Update
                 </button>

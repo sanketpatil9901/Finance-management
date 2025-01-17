@@ -13,12 +13,14 @@ export const FormWrapper = styled.div`
   padding: 40px;
   background: #fff;
   border-radius: 8px;
+  border:2px solid black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const Title = styled.h3`
   margin-bottom: 20px;
   font-size: 24px;
+  font-weight:bold;
   text-align: center;
   color: #333;
 `;
@@ -44,14 +46,14 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background: #4CAF50;
+  background: #333;
   color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
   &:hover {
-    background: #45a049;
+    background: black;
   }
 `;
 

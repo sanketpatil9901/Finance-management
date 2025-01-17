@@ -13,7 +13,7 @@ import {
   SubmitButton,
   GlobalStyle,
   Main1
-} from "../cssFiles/Admincss";
+} from "../../cssFiles/Admincss";
 import AdminNavbar from "./AdminNavbar";
 
 function Signin() {

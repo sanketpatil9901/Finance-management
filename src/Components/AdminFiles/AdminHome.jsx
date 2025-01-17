@@ -1,8 +1,8 @@
 import React from 'react';
-import '../cssFiles/AdminHome.css'; // Import your CSS styles
-import AdminMenu from './AdminMenu';
+import '../../cssFiles/AdminHome.css'; // Import your CSS styles
+import AdminMenu from '../AdminFiles/AdminMenu';
 
-const CustomerHome = () => {
+const AdminHome = () => {
   return (
     <>
     <AdminMenu/>
@@ -28,14 +28,16 @@ const CustomerHome = () => {
       </section>
 
       <footer className="footer" id="contact">
-        <h2>Contact Us</h2>
+        <h2 style={{color:"white",fontSize:"25px"}}>Contact Us</h2>
+        <div style={{display:"flex",justifyContent:"center"}}>
         <p>Email: contact@pathtoprofitable.com</p>
         <p>Phone: +123 456 7890</p>
         <p>Follow us on social media: [links]</p>
+        </div>
     </footer>
     </div>
     </>
   );
 };
 
-export default CustomerHome;
+export default AdminHome;

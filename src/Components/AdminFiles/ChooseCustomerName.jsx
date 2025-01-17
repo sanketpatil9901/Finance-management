@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../cssFiles/ChooseCustomerName.css";
+import "../../cssFiles/ChooseCustomerName.css";
 import axios from "axios";
 import TransactionDeatails from "./TransactionDetails";
-import AdminMenu from "./AdminMenu";
+import AdminMenu from "../AdminFiles/AdminMenu";
 
 function ChooseCustomerName() {
   const [selectedOption, setSelectedOption] = useState([]);

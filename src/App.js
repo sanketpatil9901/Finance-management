@@ -5,23 +5,27 @@ import {
   Route
 } from "react-router-dom";
 import HomePage from './Components/HomePage';
-import Transit from './Components/Transit';
-import Admin from './Components/Admin';
-import LoanAmtCreation from './Components/LoanAmtCreation';
-import AdminMenu from './Components/AdminMenu';
-import CustomerList from './Components/CustomerList';
+import Transit from './Components/AdminFiles/Transit';
+import Admin from './Components/AdminFiles/Admin';
+import LoanAmtCreation from './Components/AdminFiles/LoanAmtCreation';
+import AdminMenu from './Components/AdminFiles/AdminMenu';
+import CustomerList from './Components/AdminFiles/CustomerList';
 import LoanCalculator from './Components/LoanCalculator';
 import UpdateTransactionDetails from './Components/UpdateTransactionDetails';
-import ChooseCustomerName from './Components/ChooseCustomerName';
+import ChooseCustomerName from './Components/AdminFiles/ChooseCustomerName';
 import StaffDetailsForm from './Components/StaffDetails';
 import StaffLoginPage from './Components/StaffLoginPage';
-import Adminchange from './Components/AdminPasswordChange'
-import AdminUsernameChange from './Components/AdminUsernameChange';
+import Adminchange from './Components/AdminFiles/AdminPasswordChange'
+import AdminUsernameChange from './Components/AdminFiles/AdminUsernameChange';
 import TypeOfLoan from './Components/TypeOfLoan';
-import AdminHome from './Components/AdminHome'
+import AdminHome from './Components/AdminFiles/AdminHome'
+import StaffWelcomePage from './Components/StaffWelcome';
+import UpdateStaff from './Components/UpdateStaff'
+import { UserDataProvider } from './Components/AuthContext';
 
 function App() {
   return (
+    <UserDataProvider>
     <div>
         <Router basename='Finance-management'>
           <Routes>
@@ -43,9 +47,12 @@ function App() {
             <Route path='/loan/vehicle' element={<LoanAmtCreation name="Vehicle"/>} />
             <Route path='/loan/education' element={<LoanAmtCreation name="Education"/>} />
             <Route path='/adminhome' element={<AdminHome/>}/>
+            <Route path='/staffwelcome' element={<StaffWelcomePage/>}/>
+            <Route path='/updatestaff' element={<UpdateStaff/>}/>
           </Routes>
         </Router>      
     </div>
+    </UserDataProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Div,
   Wrapper,
@@ -13,6 +13,8 @@ import {
   SideImage,
   GlobalStyle
 } from '../cssFiles/UpdateStaff'; 
+import axios from 'axios';
+import { UserDataContext } from './AuthContext';
 
 const UpdateStaff = () => {
   const [staff, setStaff] = useState({
@@ -34,16 +36,32 @@ const UpdateStaff = () => {
     }));
   };
 
+  const staff1 = useContext(UserDataContext)
+ 
+
+  useEffect(()=>{
+    
+    const fetchdata = async () => {
+      const result = await axios.post('http://localhost:5000/api/staffupdatedetails',[ staff1.user.staffname,staff1.user.staffpassword ])
+      setStaff(result.data)
+    }
+    fetchdata();
+  },[staff1])
 
 
-  const handleUpdate = () => {
-    // Handle update logic here
-    console.log('Updated staff:', staff);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    try {
+         axios.post('http://localhost:5000/api/staffdetails',{staff})
+         alert("Data saved successfully")
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const handleCancel = () => {
-    // Handle cancel logic here
-    console.log('Update canceled');
+     window.history.back();
   };
 
   return (

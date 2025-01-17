@@ -9,9 +9,9 @@ import {
   Input,
   Label,
   Button,
-} from "../cssFiles/LoanAmtCreationcss"; // Import styled components
+} from "../../cssFiles/LoanAmtCreationcss"; // Import styled components
 import axios from "axios";
-import AdminMenu from "./AdminMenu";
+import AdminMenu from "../AdminFiles/AdminMenu";
 
 function LoanAmtCreation(props) {
   const [loanAmtcreate, setLoanAmtcreate] = useState({
@@ -83,7 +83,7 @@ function LoanAmtCreation(props) {
     return true;
   }
 
-    const savedata=()=>{
+    const savedata=(event)=>{
       if(registerUser(loanAmtcreate.useremail))
       {
     try {
@@ -102,6 +102,7 @@ function LoanAmtCreation(props) {
     <AdminMenu/>
     <Main>
       <FormGroup>
+        <form >
         <H1>{props.name} Loan Amount Creation</H1>
 
         <P>User Information</P>
@@ -398,6 +399,7 @@ function LoanAmtCreation(props) {
           </Div1>
         </FormGroup1>
         <Button onClick={savedata}>Save</Button>
+        </form>
       </FormGroup>
     </Main>
     </>

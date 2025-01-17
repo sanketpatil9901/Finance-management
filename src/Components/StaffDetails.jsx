@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../cssFiles/StaffDetails.css'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AdminMenu from './AdminMenu';
+import AdminMenu from './AdminFiles/AdminMenu';
 
 const StaffDetailsForm = () => {
   const [formData, setFormData] = useState({

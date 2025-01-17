@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../cssFiles/AdminChange.css';
+import '../../cssFiles/AdminChange.css';
 import AdminNavbar from './AdminNavbar';
 
 
